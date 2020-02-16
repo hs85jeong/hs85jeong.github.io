@@ -1,11 +1,159 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Devy | Feed]]></title><description><![CDATA[Develop Everything]]></description><link>https://hs85jeong.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Feb 2020 12:28:34 GMT</lastBuildDate><item><title><![CDATA[Tag, 태그 게시물 예제]]></title><description><![CDATA[게시물에 태그를 지정할 수 있습니다. 해당 게시물의 Markdown YAML Front matter은 아래와 같습니다. 가이드의 Markdown YAML Front matter를 참고하세요. 자세한 가이드는 Documents를 확인해주세요.]]></description><link>https://hs85jeong.github.io/tag-post-example/</link><guid isPermaLink="false">https://hs85jeong.github.io/tag-post-example/</guid><pubDate>Sun, 24 Mar 1991 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;게시물에 태그를 지정할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;해당 게시물의 Markdown YAML Front matter은 아래와 같습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;---
-title: Tag, 태그 게시물 예제
-date: 2019-07-30
-tags:
-  - tag
-  - 태그
----&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;가이드의 Markdown YAML Front matter를 참고하세요.&lt;/p&gt;
-&lt;p&gt;자세한 가이드는 &lt;a href=&quot;https://github.com/junhobaik/junhobaik.github.io/wiki/Document-(Borderless)&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Documents&lt;/a&gt;를 확인해주세요.&lt;/p&gt;</content:encoded></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Devy | Feed]]></title><description><![CDATA[Develop Everything]]></description><link>https://hs85jeong.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Feb 2020 13:04:54 GMT</lastBuildDate><item><title><![CDATA[Node.js에서 스크립트가 실행될 때 어떤 일들이 일어날까요?]]></title><description><![CDATA[혹시 Node.js 스크립트를 실행하면 어떤 방식으로 동작을 하는지 궁금하지 않았나요? 이 글은 이런 궁금증을 가지고 있는 분들에게 조금이나마 도움이 되고자 하는 글이니, 관심이 없으시다면 스킵하셔도 됩니다 :D 먼저, Node.js…]]></description><link>https://hs85jeong.github.io/node-internal/</link><guid isPermaLink="false">https://hs85jeong.github.io/node-internal/</guid><pubDate>Sun, 16 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;혹시 Node.js 스크립트를 실행하면 어떤 방식으로 동작을 하는지 궁금하지 않았나요?&lt;/p&gt;
+&lt;p&gt;이 글은 이런 궁금증을 가지고 있는 분들에게 조금이나마 도움이 되고자 하는 글이니, 관심이 없으시다면 스킵하셔도 됩니다 :D&lt;/p&gt;
+&lt;p&gt;먼저, Node.js를 분석하기 위해서 코드를 다운 받아봅시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;$ git clone https&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;github&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;com&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;nodejs&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;git &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; cd node&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Node.js의 파일 구조는 아래와 같은 모습을 가지고 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ tree -L &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
+├── AUTHORS
+├── BSDmakefile
+├── BUILDING.md
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── COLLABORATOR_GUIDE.md
+├── CONTRIBUTING.md
+├── CPP_STYLE_GUIDE.md
+├── GOVERNANCE.md
+├── LICENSE
+├── Makefile
+├── README.md
+├── SECURITY.md
+├── android-configure
+├── benchmark
+├── common.gypi
+├── configure
+├── configure.py
+├── deps
+├── doc
+├── lib           &lt;span class=&quot;token comment&quot;&gt;# JS sources&lt;/span&gt;
+├── node.gyp
+├── node.gypi
+├── src           &lt;span class=&quot;token comment&quot;&gt;# C++ sources&lt;/span&gt;
+├── &lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt;
+├── tools
+└── vcbuild.bat
+
+&lt;span class=&quot;token number&quot;&gt;7&lt;/span&gt; directories, &lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt; files&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;노드는 크게 2종류의 언어로 이루어져 있는데 &lt;code class=&quot;language-text&quot;&gt;lib/&lt;/code&gt; 폴더 안에 있는 JavaScript 파일 들과 &lt;code class=&quot;language-text&quot;&gt;src/&lt;/code&gt; 폴더 밑에 존재하는 많은 양의 C++ 파일 들이 있습니다. &lt;/p&gt;
+&lt;p&gt;Node.js의 모든 시작 과정은 C++에서 완료되며, main 시작 지점은 &lt;code class=&quot;language-text&quot;&gt;src/node_main.cc&lt;/code&gt; 입니다.&lt;/p&gt;
+&lt;p&gt;이 안에서 제일 중요한 부분은 다음과 같습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;return node::Start(argc, argv);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 것은 &lt;code class=&quot;language-text&quot;&gt;src/node.cc&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;Start&lt;/code&gt;을 호출하고 command line의 parameter들을 &lt;code class=&quot;language-text&quot;&gt;argc&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;argv&lt;/code&gt;로 넘겨줍니다.&lt;/p&gt;
+&lt;p&gt;첫 번째 단계로 &lt;code class=&quot;language-text&quot;&gt;Start()&lt;/code&gt;안에서 런타임 초기화 작업들이 수행되는데 &lt;code class=&quot;language-text&quot;&gt;InitializeOncePerProcess&lt;/code&gt;는 환경변수(예.&lt;code class=&quot;language-text&quot;&gt;NODE_OPTIONS&lt;/code&gt;)나 CLI parameters(예.&lt;code class=&quot;language-text&quot;&gt;--abort-on-uncaught-exception&lt;/code&gt;)를 통해 주어지는 설정 값들을 처리하고 V8을 초기화 해준다. 한 번 이작업이 완료가 되면, 새로운 node 인스턴스들은 &lt;a href=&quot;http://docs.libuv.org/en/v1.x/loop.html#c.uv_default_loop&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;libuv default loop&lt;/a&gt;를 사용해 초기화 된 후 마침내 아래와 같이 실행되게 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;NodeMainInstance main_instance(&amp;amp;params,
+                               uv_default_loop(),
+                               per_process::v8_platform.Platform(),
+                               result.args,
+                               result.exec_args,
+                               indexes);
+result.exit_code = main_instance.Run()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;NodeMainInstance::Run()&lt;/code&gt;을 통해 Node를 실행 시 어떤 일들이 수행되는 지를 알 수 있는 길에 좀 더 가까워졌습니다. 새로운 메인 쓰레드 수행 환경이 &lt;code class=&quot;language-text&quot;&gt;src/node_main_instance.cc&lt;/code&gt;에서 만들어지는데:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;std::unique_ptr&amp;lt;Environment&amp;gt; env = CreateMainEnvironment(&amp;amp;exit_code);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 &lt;code class=&quot;language-text&quot;&gt;Environment&lt;/code&gt; 인스턴스가 libuv와 V8을 접근 할 수 있는 Handle들을 가지고 있는 노드 프로세스의 중심 객체입니다.&lt;/p&gt;
+&lt;p&gt;이 객체를 &lt;code class=&quot;language-text&quot;&gt;LoadEnvironment&lt;/code&gt;에 넘기면&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;LoadEnvironment(env.get());&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;main thread 수행이 시작된다:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;void LoadEnvironment(Environment* env) {
+  CHECK(env-&amp;gt;is_main_thread());
+  USE(StartMainThreadExecution(env));
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 부분에서 C++에서 JavaScript 수행으로 변경이 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;MaybeLocal&amp;lt;Value&amp;gt; StartMainThreadExecution(Environment* env) {
+  if (NativeModuleEnv::Exists(&amp;quot;_third_party_main&amp;quot;)) {
+    return StartExecution(env, &amp;quot;internal/main/run_third_party_main&amp;quot;);
+  }
+
+  std::string first_argv;
+  if (env-&amp;gt;argv().size() &amp;gt; 1) {
+    first_argv = env-&amp;gt;argv()[1];
+  }
+
+  if (first_argv == &amp;quot;inspect&amp;quot; || first_argv == &amp;quot;debug&amp;quot;) {
+    return StartExecution(env, &amp;quot;internal/main/inspect&amp;quot;);
+  }
+
+  if (per_process::cli_options-&amp;gt;print_help) {
+    return StartExecution(env, &amp;quot;internal/main/print_help&amp;quot;);
+  }
+
+
+  if (env-&amp;gt;options()-&amp;gt;prof_process) {
+    return StartExecution(env, &amp;quot;internal/main/prof_process&amp;quot;);
+  }
+
+  // -e/--eval without -i/--interactive
+  if (env-&amp;gt;options()-&amp;gt;has_eval_string &amp;amp;&amp;amp; !env-&amp;gt;options()-&amp;gt;force_repl) {
+    return StartExecution(env, &amp;quot;internal/main/eval_string&amp;quot;);
+  }
+
+  if (env-&amp;gt;options()-&amp;gt;syntax_check_only) {
+    return StartExecution(env, &amp;quot;internal/main/check_syntax&amp;quot;);
+  }
+
+  if (!first_argv.empty() &amp;amp;&amp;amp; first_argv != &amp;quot;-&amp;quot;) {
+    return StartExecution(env, &amp;quot;internal/main/run_main_module&amp;quot;);
+  }
+
+  if (env-&amp;gt;options()-&amp;gt;force_repl || uv_guess_handle(STDIN_FILENO) == UV_TTY) {
+    return StartExecution(env, &amp;quot;internal/main/repl&amp;quot;);
+  }
+
+  return StartExecution(env, &amp;quot;internal/main/eval_stdin&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;StartExecution&lt;/code&gt;의 경우 두번째 인자로 넘겨지는 JS파일들을 읽고, 컴파일하고, 실행하는데 모든 파일은 &lt;code class=&quot;language-text&quot;&gt;lib/&lt;/code&gt; 폴더 밑에 있는데, 이중 관심있게 봐야하는 곳은 두 곳 입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;if (!first_argv.empty() &amp;amp;&amp;amp; first_argv != &amp;quot;-&amp;quot;) {
+  return StartExecution(env, &amp;quot;internal/main/run_main_module&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;if (env-&amp;gt;options()-&amp;gt;force_repl || uv_guess_handle(STDIN_FILENO) == UV_TTY) {
+  return StartExecution(env, &amp;quot;internal/main/repl&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;lib/internal/main/repl.js&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;lib/internal/main/run_main_module.js&lt;/code&gt; 두 스크립트 모두 중요한 시작 메소드인 &lt;code class=&quot;language-text&quot;&gt;lib/internal/bootstrap/pre_execution.js&lt;/code&gt;안의 &lt;code class=&quot;language-text&quot;&gt;prepareMainThreadExecution&lt;/code&gt;을 실행하는데, 이것은 여러 setup 작업들을 수행하는데 이 중 CommonJS와 ES module loader 초기화 역시 수행됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;lib/internal/modules/cjs/loader.js&lt;/code&gt;안의 &lt;code class=&quot;language-text&quot;&gt;Module&lt;/code&gt; 객체는 CommonJS loaders core이며 &lt;code class=&quot;language-text&quot;&gt;initializeCJSLoader&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;runMain&lt;/code&gt;를 통해 &lt;code class=&quot;language-text&quot;&gt;lib/internal/modules/run_main.js&lt;/code&gt;안의 &lt;code class=&quot;language-text&quot;&gt;executeUserEntryPoint&lt;/code&gt;을 실행해줍니다.&lt;/p&gt;
+&lt;p&gt;CommonJS module의 경우 &lt;code class=&quot;language-text&quot;&gt;Module._load&lt;/code&gt;로 새로운 &lt;code class=&quot;language-text&quot;&gt;Module&lt;/code&gt; 인스턴스를 생성하고 &lt;code class=&quot;language-text&quot;&gt;load&lt;/code&gt;를 호출 해주고 적절한 extension function이 module을 읽어오는데 사용됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;Module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_extensions&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;extension&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; filename&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;*.js&lt;/code&gt; extension이 실제 파일을 읽고 컴파일 해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; content &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readFileSync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;filename&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;utf8&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;_compile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;content&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; filename&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;module._compile&lt;/code&gt;은 V8의 &lt;code class=&quot;language-text&quot;&gt;ScriptCompiler:CompileFunctionInContext&lt;/code&gt;를 호출하고 &lt;a href=&quot;https://nodejs.org/api/modules.html#modules_the_module_wrapper&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;node module wrapper&lt;/a&gt;에 맞는 &lt;code class=&quot;language-text&quot;&gt;exports&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;require&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;module&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;__filename&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;__dirname&lt;/code&gt;을 넘겨줍니다.&lt;/p&gt;
+&lt;p&gt;이렇게 불려진 function은 실행이 되고 결과를 리턴해줍니다:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;compiledWrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;thisValue&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; exports&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; require&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; module&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                              filename&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dirname&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;다음으로 확인 해봐야할 부분은 &lt;a href=&quot;http://docs.libuv.org/en/v1.x/guide/basics.html#event-loops&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;libuv eventloop&lt;/a&gt;입니다.&lt;/p&gt;
+&lt;p&gt;JavaScript를 컴파일하고 실행한 후, node 인스턴스는 event loop를 시작해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c++&quot;&gt;&lt;pre class=&quot;language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;do {
+    uv_run(env-&amp;gt;event_loop(), UV_RUN_DEFAULT);
+
+    per_process::v8_platform.DrainVMTasks(isolate_);
+
+    more = uv_loop_alive(env-&amp;gt;event_loop());
+    if (more &amp;amp;&amp;amp; !env-&amp;gt;is_stopping()) continue;
+
+    if (!uv_loop_alive(env-&amp;gt;event_loop())) {
+        EmitBeforeExit(env.get());
+    }
+
+    // Emit `beforeExit` if the loop became alive either after emitting
+    // event, or after running some callbacks.
+    more = uv_loop_alive(env-&amp;gt;event_loop());
+} while (more == true &amp;amp;&amp;amp; !env-&amp;gt;is_stopping());&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://docs.libuv.org/en/v1.x/loop.html#c.uv_run_mode&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;uv&lt;em&gt;run&lt;/em&gt;mode&lt;/a&gt; &lt;code class=&quot;language-text&quot;&gt;UV_RUN_DEFAULT&lt;/code&gt;는 더이상 동작하거나 참조되는 곳이 없을때 까지 event loop를 수행합니다.&lt;/p&gt;
+&lt;p&gt;libuv는 lifetime에 따라 handle과 request로 구분이 되는데, 오랫동안 수행되는 객체의 경우 handle이라고 할 수 있고 짧은 시간동안 수행되는 operation들을 request라고 할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; http &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;http&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;requestHandler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; res&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Hello World!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; server &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; http&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;requestHandler&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+server&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 예제의 경우 &lt;code class=&quot;language-text&quot;&gt;requestHandler&lt;/code&gt;를 libuv request로 볼 수 있습니다. 반면, &lt;code class=&quot;language-text&quot;&gt;server&lt;/code&gt; 객체의 &lt;code class=&quot;language-text&quot;&gt;listen&lt;/code&gt;은 handle이라고 할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;HTTP server를 멈추지 않는 이상, libuv는 계속해서 실행되고 입력되는 연결들을 처리할 것 입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;위 과정들이 Node.js에서 스크립트가 어떻게 수행되는 지를 설명한 내용입니다. 물론, 전체 과정을 상세히 다루는게 아니기 때문에 설명이 부족한 부분이 있을 수 있겠지만, 스크립트가 수행되는 과정에서의 중요한 부분들을 설명해주고 있습니다.&lt;/p&gt;
+&lt;p&gt;혹시 기회가 된다면 다음 포스트를 통해 추가적인 내용들을 다루어 보겠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.s1h.org/inside-node-executing-a-script/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Inside node: What happens when we execute a script?&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
