@@ -1,4 +1,337 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Devy | Feed]]></title><description><![CDATA[Develop Everything]]></description><link>https://hs85jeong.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 26 Mar 2020 13:35:03 GMT</lastBuildDate><item><title><![CDATA[Galaxy Watch 앱 만들기 #2 - TAU (Tizen Advanced UI) 사용하기]]></title><description><![CDATA[TAU 란? 일반적으로 Web Application은 html, css, js를 조합해서 개발을 하는데 Web…]]></description><link>https://hs85jeong.github.io/tizen-2/</link><guid isPermaLink="false">https://hs85jeong.github.io/tizen-2/</guid><pubDate>Tue, 24 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;tau-란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#tau-%EB%9E%80&quot; aria-label=&quot;tau 란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;TAU 란?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Devy | Feed]]></title><description><![CDATA[Develop Everything]]></description><link>https://hs85jeong.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 29 Mar 2020 11:08:16 GMT</lastBuildDate><item><title><![CDATA[Galaxy Watch 앱 만들기 #4 - Button]]></title><description><![CDATA[TAU Button 생성 App 개발시 많이 사용되는 Component 중 하나로 말 그대로 Button 이다. TAU에서 Button을 추가할 수 있는 방법은 아래와 같이 3가지 방법이 있다.  Button 속성 기본적으로 Button…]]></description><link>https://hs85jeong.github.io/tizen-4/</link><guid isPermaLink="false">https://hs85jeong.github.io/tizen-4/</guid><pubDate>Mon, 30 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h3 id=&quot;tau-button-생성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#tau-button-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;tau button 생성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;TAU Button 생성&lt;/h3&gt;
+&lt;p&gt;App 개발시 많이 사용되는 Component 중 하나로 말 그대로 Button 이다.&lt;/p&gt;
+&lt;p&gt;TAU에서 Button을 추가할 수 있는 방법은 아래와 같이 3가지 방법이 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-page&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-content&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- 3가지 버튼 생성 방법 이 중 하나 선택 --&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Button&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;a&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;#&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Button&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;a&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 360px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bf781f82f5fa3c48eaefd8f85e8d3137/34b33/tizen1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACIUlEQVQ4y7WVz28SQRTHZwbXFiq74UDjSSIcNCGG0K2wXcSDwVjbg+FQFDRCay9Gk8bEHydPxsQzfwj/UQ/8HUvm65sfCyMqa2K6ySfzZva977xZ3hsY+/XhdswTY2JGzInEMrdrY+vjxvxRSD0j4pJABpfWl20SnjoBaVaSc77EWU/9pn/LbuoILZRQBgtHeLqe5cgRU5koWzYaDdntdtFsNtFqtVCv11Eul1NB2DEVtccvlunjcvoeSoQv1Mi50AG3KhXEnQ7C/X3shSHuk2h5d9ccVR9/FaM1tJb5xZbZObv/C3ItyzHjtXjGawfgt9sJIS1qDkaIagRebWtytcjM7XvHP9EapMVEPJmL7jlE50xakOI9PAeLJ9rOPXgDFo3BDibgnVM4fiZOaZAW4+1RQoC3RlIhjK15evEDj95+0+Pj998RnX7FveFnpD7CidMapMVE9CohQEiLssGJyrML1F98wZ2Tj6j2P+Du4BNuHr3Dtfg1BRu/tbiE8dZwztsvaaehtCCFhc/BmifEAGxvYGxaU+/Eys/EGQ1qzXwwY9s+iISQhiJYntau74Bt3YCe69E3tvHHyl/HQmttKptS4KO4U4CXE9je8iBoTWSVDe2Ydy4D1U7gwhR2SMXc7/fx5PAQR8fH6PV6qFCxax/T18sYrWG0fm+9dPdCoSCp1RAEAXzfR6lUgud5Ga13RZfDxutrjczr60ov2P/+C/gJlF6Bqa3vR58AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tizen1&quot;
+        title=&quot;tizen1&quot;
+        src=&quot;/static/bf781f82f5fa3c48eaefd8f85e8d3137/34b33/tizen1.png&quot;
+        srcset=&quot;/static/bf781f82f5fa3c48eaefd8f85e8d3137/00d96/tizen1.png 148w,
+/static/bf781f82f5fa3c48eaefd8f85e8d3137/0b23c/tizen1.png 295w,
+/static/bf781f82f5fa3c48eaefd8f85e8d3137/34b33/tizen1.png 360w&quot;
+        sizes=&quot;(max-width: 360px) 100vw, 360px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;button-속성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#button-%EC%86%8D%EC%84%B1&quot; aria-label=&quot;button 속성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Button 속성&lt;/h3&gt;
+&lt;p&gt;기본적으로 Button을 표현하는 방법 외에도 아래 속성들을 넣어주면 추가 속성을 부여할 수 있다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;class&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-btn&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Button Component를 만들기 위해 기본으로 추가되어야 하는 class&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-btn-icon&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;icon 스타일 button 생성&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-inline&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;inline 스타일 button 생성&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-multiline&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;multiline 스타일 button 생성&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;icon-버튼&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#icon-%EB%B2%84%ED%8A%BC&quot; aria-label=&quot;icon 버튼 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Icon 버튼&lt;/h3&gt;
+&lt;p&gt;텍스트를 가진 Button 외에도 아이콘 형식의 버튼을 만들기 위해서는 아래와 같은 형태로 입력해주면 된다. 기본 버튼 생성 class인 &lt;code class=&quot;language-text&quot;&gt;ui-btn&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;ui-btn-icon&lt;/code&gt;을 추가해주면 된다. 사용할 아이콘 이미지의 위치는 &lt;code class=&quot;language-text&quot;&gt;background-image&lt;/code&gt; style의 url()안에 입력하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn ui-btn-icon ui-btn-icon-middle&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style-attr language-css&quot;&gt;&lt;span class=&quot;token attr-name&quot;&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&quot;&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token property&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token url&quot;&gt;&lt;span class=&quot;token function&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;icon.png&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 360px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aa2398c8eb8497f3f35d97140a8a0ccb/34b33/tizen3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABTUlEQVQ4y2NgQAWMUJoTiOOBeB0QPwTi31D8ECoWD1WDrAerQSAQBcR3gfg/AXwXqpYBn8GTkDTAXPUPDcPEYeomoRrBxMyIZhhI8R8sBqHjP0gGT0JxJTMzcxQjI+N/IIa56D+SRnSv/kNTAzMU7n1OpDD7g6SQUBj+Q9NzF2wWo6ZLvJKRzX9DU7PfilqG/xik9YAKGf8TYeB/tHD9D459V1ePdf5Fzf8jJq78HZxd/k/ROYISA9cxWCUWPEybvOL/5ClT/8VPWfvPyNHtPyNxhmEL04cMug7ev+M75/zvmLviX3jn/H/qBqb/GRiZyDXwN4OQgdtvrdCM/xbROf+0vaP+cRv7AiUoMJBBWPEhG4/Qf2521n8sPEL/GHglSDEM08vQvPkfLVeQHynA8IqnooHx1E/YSCUMsispynrULxyoW3zRuICluAoAALbWUYsQIMbnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tizen3&quot;
+        title=&quot;tizen3&quot;
+        src=&quot;/static/aa2398c8eb8497f3f35d97140a8a0ccb/34b33/tizen3.png&quot;
+        srcset=&quot;/static/aa2398c8eb8497f3f35d97140a8a0ccb/00d96/tizen3.png 148w,
+/static/aa2398c8eb8497f3f35d97140a8a0ccb/0b23c/tizen3.png 295w,
+/static/aa2398c8eb8497f3f35d97140a8a0ccb/34b33/tizen3.png 360w&quot;
+        sizes=&quot;(max-width: 360px) 100vw, 360px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;inline-버튼&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#inline-%EB%B2%84%ED%8A%BC&quot; aria-label=&quot;inline 버튼 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Inline 버튼&lt;/h3&gt;
+&lt;p&gt;일반 Button의 경우 한 줄 전체 크기로 생성이 되지만 inline 버튼의 경우 Text 크기만큼의 영역이 할당되는 버튼이다.
+기본 버튼 생성 class인 &lt;code class=&quot;language-text&quot;&gt;ui-btn&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;ui-inline&lt;/code&gt;을 추가해주면 된다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Button&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn ui-inline&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Inline&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn ui-inline&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Inline&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 360px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6b0b7d53880f590fda047b67095ef2b6/34b33/tizen2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABrUlEQVQ4y7WVy07CQBSGZ3AhJtQYb0RYtErFKFQsTSSSQHBFWMlKErzUy9KlxsgTuO+D+EYseA7I/E7bKZmW1oaoTf50MnPO13PmnJkSEn6oeK9x2VxfXBOuqdBEzNnCRvaJBbnPkGvMhRSNhS35CexIDkFULKJgPrBzkqJzJNAsBhTVTAI70SiHEoyJMaOUukKgYF62kaDz9NekPZtJhml7yCI+46BQdiQ6FkSjqipKpRI0TYOu68jn81AUJQqVo3RZXhuEgZkVz+HMrOOq30er1Ua73Uan00GhUPDWxEejQJfl9VZ0b2Il7WNclBCsOd1fWM2B5sugu4dcujcmG8UFcEKRphKQ+gvbByAXjyDndyANVw8glW5acULAiQzM7OzjaPCO+u0IJ9evqAxHyJ52kcvlYNXrqNVqKJfLXsGSUhZFoV5R6JbGjJsRB36gOnjD5csnFLPHgQoajQYMw4BlWTBNM7EotgzkKTPSfOKp3vtqPoNUe2nphtom3NjZddBChdG9Y3gqVkA21aUaO/HoJbRR6tFbvBwonflFkrXc5fCn19e/XrC//gV8A7WuVQWHKdlUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tizen2&quot;
+        title=&quot;tizen2&quot;
+        src=&quot;/static/6b0b7d53880f590fda047b67095ef2b6/34b33/tizen2.png&quot;
+        srcset=&quot;/static/6b0b7d53880f590fda047b67095ef2b6/00d96/tizen2.png 148w,
+/static/6b0b7d53880f590fda047b67095ef2b6/0b23c/tizen2.png 295w,
+/static/6b0b7d53880f590fda047b67095ef2b6/34b33/tizen2.png 360w&quot;
+        sizes=&quot;(max-width: 360px) 100vw, 360px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;다중-line-버튼&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8B%A4%EC%A4%91-line-%EB%B2%84%ED%8A%BC&quot; aria-label=&quot;다중 line 버튼 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;다중 line 버튼&lt;/h3&gt;
+&lt;p&gt;다중 line 버튼의 경우 텍스트를 여러 줄 가진 형식의 버튼을 만들고 싶을 경우 사용한다. 기본 버튼 생성 class인 &lt;code class=&quot;language-text&quot;&gt;ui-btn&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;ui-multiline&lt;/code&gt;을 추가해주면 된다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn ui-multiline&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Multiline&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;br&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt; Button&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 360px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4849bb9d7e4a669894d2eecdf76becda/34b33/tizen4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACUklEQVQ4y72Vy24TMRSGbYcCKahiUyTERUhI0AVFhLS5NWoaEKAuECxIm0ymnaZFLREgkLgJCRbchFiwyYa3yBtlkedw5J9zPHY7k1SwADHSn3Nsn/8be2w5QqQf6WKWFJH6pCFJOw1dX+Rqkp5DQfwEpAEJf9DA1YrfgXsJg5+VGZPv93W9NGL2khyDcfHoENC4RglwL83KzgTi6DTEVFaTDAku+jwpM1ajrZcZ/KhaNysX1weyGEAWmiO52ATJuAhVaJF83sSR4n47rmEPe4nBLCGL7UgtbUOVNrQqhYYii9uQxRBioQVRCCB8fn3N5nbc1lqPZgazBHX0VWWLG5pEg23DgBO1DqKPP5EL3+HWk6+o7X1CofMBK48/4+TKtn0J17KHvcxgFs9wGM8odG8LGY6pyibmGq8w33qLq603uPzwJa5QeyF6j2PViIBt9iR8vKL2UKhiqJMDDPNQcWP9QPlmHO2SD2qSE2HWBDBRaI0ybUYmrt1vTwAPW7KF0TeaqT/C9HLHLp+XybBMOQWbXDL99NWS/aDaD2bKGxC5Nfu9Hrz+gTvPvmH1xXfUu19w8f5z2u2mn6mfhGYGs3iXI7vLhUCTDEvRuRJ0xk7d3MGFe09x+u4eZm/v4sxqF8ermzR7Oov23Mb17HW7HAmZb2RpugO1vAtV3RmROBqOotKBKG1BlDtOlPOZTdRYD3uJwaz4mpirB/J8DuLsvJbnrhkS5xyNolymZdyYzzV7mRHD8o1/djkkWP5GUz0hJZy0kxmT73d1qvdfL9i//gv4BSX/v4rfo9dYAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tizen4&quot;
+        title=&quot;tizen4&quot;
+        src=&quot;/static/4849bb9d7e4a669894d2eecdf76becda/34b33/tizen4.png&quot;
+        srcset=&quot;/static/4849bb9d7e4a669894d2eecdf76becda/00d96/tizen4.png 148w,
+/static/4849bb9d7e4a669894d2eecdf76becda/0b23c/tizen4.png 295w,
+/static/4849bb9d7e4a669894d2eecdf76becda/34b33/tizen4.png 360w&quot;
+        sizes=&quot;(max-width: 360px) 100vw, 360px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;버튼-클릭시-색상-변경&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%84%ED%8A%BC-%ED%81%B4%EB%A6%AD%EC%8B%9C-%EC%83%89%EC%83%81-%EB%B3%80%EA%B2%BD&quot; aria-label=&quot;버튼 클릭시 색상 변경 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;버튼 클릭시 색상 변경&lt;/h3&gt;
+&lt;p&gt;버튼 클릭시 표시되는 기본 생상을 다른 색으로 변경하고 싶다면 아래 표를 참고하여 변경하여주면 된다. &lt;code class=&quot;language-text&quot;&gt;ui-btn&lt;/code&gt;에 원하는 색상 class를 추가해주면 된다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;class&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Default color&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Pressed color&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Disable color&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-color-red&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#ce2302&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#dd654e&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#3d0a0a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-color-orange&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#ed8600&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#f0aa56&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#462805&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-color-green&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#64a323&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#92be5e&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;#1e3108&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;a&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;#&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn ui-color-red&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Red Button&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;a&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;a&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;#&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn ui-color-orange&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Orange Button&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;a&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;a&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;#&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn ui-color-green&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Green Button&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;a&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 360px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5c2f80ba67e7bec75291c9120e813bf0/34b33/tizen5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACr0lEQVQ4y7VVTU9TQRS9854IVQT7QVwAWldaMKCQlBigIhIqYIK7NrDoWlAD+g8UY0AJCqwxGj82pr8AWLgwYPwLLLqsKW5su/CROd6ZN688CRUT40tO7/TM3DP3zdx7H9HvjzA2wMgwsowcwzHIGS5j1vh9DhVSzwRjh4EjsGPW0p+El30OjhBCRSUPwOO9dcvVovPEHMuy9vwiLCAPEd4zx+AXFd6vCh2W5UYUj8eRSqXkwMCA7O7uRjqdwrVEAj09cWVlor9ftra2wGymRYXv9QO+M1O7IhQKy/b2dnR0dKK5uQWxWBuudHXpseI7Oy/rNX4fo6EvKmMJ3kHw2fCOHKX8iwvRYD8pdJR8TEJzGfp0j7KfZwgb0+RsTJFcv0OSLTbvCmxOa94dM6f5aarw61N6rVS+SkNp0Y95yv1cJJQWSCqUV8IoLwXUf5Sf2yg9E+54NYLyywaUF4/x/Ames8y866c0lBZ9myMnP0fIPyKZf1orC2tXUXiXxO6HWyi8ZfsxjcLrBAqv+vA9O4nd96MovBlkO8L2OvJPLJl/zL6sobRUhE6RI2DI4jxjqR7FpZMorTSh+KIR5bVLPI5A8aXVM8w1uOPlkLbFBeH6LegIHfrygHJfHxK2ZkkqbPNZbM8yZgzuu5bXuXZ2f35rZt9PaSgtqrEoW2MTGM5xm2/ZTVqVVxVY3q36rOJtvmX2U3C0hqXrXBc6TNbL08EQJ+1ZhCNNLsIR1J9q0DkZDIZw4WIMwVBY5SFq6wKVcjQaGWqscxObM14naTR6DkNDQ/JmMonb4+NIDg+jrS2GyckJjI2N4cbgIPp6ezE6MiLPR6Pax/juGK1Kh6lEybUMX83q11ROtm1rnq3H+6ObqNocTDnJI1C9OVRrX17EB9uXT+jQ9vVfG+w/fwJ+AWDp31mEgRcrAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tizen5&quot;
+        title=&quot;tizen5&quot;
+        src=&quot;/static/5c2f80ba67e7bec75291c9120e813bf0/34b33/tizen5.png&quot;
+        srcset=&quot;/static/5c2f80ba67e7bec75291c9120e813bf0/00d96/tizen5.png 148w,
+/static/5c2f80ba67e7bec75291c9120e813bf0/0b23c/tizen5.png 295w,
+/static/5c2f80ba67e7bec75291c9120e813bf0/34b33/tizen5.png 360w&quot;
+        sizes=&quot;(max-width: 360px) 100vw, 360px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;버튼-크기-설정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%84%ED%8A%BC-%ED%81%AC%EA%B8%B0-%EC%84%A4%EC%A0%95&quot; aria-label=&quot;버튼 크기 설정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;버튼 크기 설정&lt;/h3&gt;
+&lt;p&gt;버튼 크기를 원하는 크기의 비율로 배치하고 싶을 경우는 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;ui-grid-col-x&lt;/code&gt;를 사용하여 크기를 정할 수 있다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;class&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-grid-col-1&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;버튼 가로 크기를 100%로 설정한다&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-grid-col-2&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;버튼 가로 크기를 50%로 설정한다&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-grid-col-3&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;버튼 가로 크기를 33%로 설정한다&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ui-grid-row&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;버튼을 가로 한줄 씩 사용하도록 정의한다&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-grid-col-1&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;100%&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-grid-col-2&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;50%&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;50%&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-grid-col-3&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;33%&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;33%&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ui-btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;33%&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 360px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a49de5bbf94e25840a3b037f081d2af1/34b33/tizen6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACLklEQVQ4y61VXY/SQBSddkOVKJq6G+quFCyCqZiFwCpfhUDwgYTw4MMaE/yoIZgYH3zQ+OyLv6A/xH/EA7+jzRxn2ikOTbtZo5OctJ259+Tee+7cEnK4FPHMM7gMvxh2DL7ATuy5wkb2SSXia8WwZQCHoigHiPeFzSqDY788ySGOiiYQ78d2XlZ0nkQUcOdcLkfL5TK1LIvatk0rlQplUcbEgUTsJaNcSWRUvFNN02i73cZ8PsdsNsNisYCu61S2kUj36eelmgWS4b5eqqpCrmnCJpBqGgrlytHxlBLFT4UQiSai5FxhGyAhAK6JJCHnIjsRUShAq9VCt9tFsVhMjYo/S6USms0m+v0+DMOQg+B9SvyYkCs5mUzgOA7anU5ExM/Cc5aiqGWtXsd0OsV4PEan05EJfSKF+7fpIsUvJNwdHghBbtwGOW2A3LcZnkA5jUDO2N7NO1mEu2xR7plQRxscjdZQnTXI4ANI34U6/ghyUhXlUFNFcVmzotfr+ax+dDh0qMIF0B+APF+h+vILRpsfePH5J+zLryDdN1COH4aE5+dNZj+ky+XSLxQK+7bJs49to9GAaZrBxcUzaEesv+6ehc7G/BOevv4O+9W3kFAdvAc5roSpWtVHqNVqAe8MpvxWmkApV083qTpaUzJwGfE7gbcs5Q0lJ9aVVy+80Kx1PNFr0XDQblFSrFOFw/gDYjymTLBoOES2/Gp6WSPsv4yvKwaskoHrD9h//gX8BnjKY9x+kRS/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tizen6&quot;
+        title=&quot;tizen6&quot;
+        src=&quot;/static/a49de5bbf94e25840a3b037f081d2af1/34b33/tizen6.png&quot;
+        srcset=&quot;/static/a49de5bbf94e25840a3b037f081d2af1/00d96/tizen6.png 148w,
+/static/a49de5bbf94e25840a3b037f081d2af1/0b23c/tizen6.png 295w,
+/static/a49de5bbf94e25840a3b037f081d2af1/34b33/tizen6.png 360w&quot;
+        sizes=&quot;(max-width: 360px) 100vw, 360px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Galaxy Watch 앱 만들기 #3 - TAU Component 종류]]></title><description><![CDATA[TAU Component 리스트 앞서 #2에서 TAU를 어떻게 사용하면 되는지를 배웠다면, 이제 해야할 일은 TAU에서 제공하는 Component 들 중에 내가 개발할 App에 필요한 Component를 찾아야 하는 일이다. TAU…]]></description><link>https://hs85jeong.github.io/tizen-3/</link><guid isPermaLink="false">https://hs85jeong.github.io/tizen-3/</guid><pubDate>Sun, 29 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;tau-component-리스트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#tau-component-%EB%A6%AC%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;tau component 리스트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;TAU Component 리스트&lt;/h2&gt;
+&lt;p&gt;앞서 &lt;a href=&quot;https://hs85jeong.github.io/tizen-2/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;#2&lt;/a&gt;에서 TAU를 어떻게 사용하면 되는지를 배웠다면, 이제 해야할 일은 TAU에서 제공하는 Component 들 중에 내가 개발할 App에 필요한 Component를 찾아야 하는 일이다. TAU에서 제공하는 Component들의 리스트는 &lt;a href=&quot;https://docs.tizen.org/application/web/api/4.0/ui_fw_api/Wearable_UIComponents/wearable_component_list.htm&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;이곳&lt;/a&gt;에서 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;현재 공식 Document 상에는 총 23가지의 기본 Component들을 제공하고 있다. 이 Component들의 사용법에 대해서 하나 하나씩 다루어 보도록 하겠다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Wearable UI Components&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Button&lt;/li&gt;
+&lt;li&gt;Checkbox and radio button&lt;/li&gt;
+&lt;li&gt;Circle ProgressBar&lt;/li&gt;
+&lt;li&gt;Circular Index scroll bar&lt;/li&gt;
+&lt;li&gt;Date picker&lt;/li&gt;
+&lt;li&gt;Drawer&lt;/li&gt;
+&lt;li&gt;Index scroll bar&lt;/li&gt;
+&lt;li&gt;List&lt;/li&gt;
+&lt;li&gt;Marquee&lt;/li&gt;
+&lt;li&gt;Number picker&lt;/li&gt;
+&lt;li&gt;Page Indicator&lt;/li&gt;
+&lt;li&gt;Popup&lt;/li&gt;
+&lt;li&gt;Processing&lt;/li&gt;
+&lt;li&gt;Progress&lt;/li&gt;
+&lt;li&gt;Section changer&lt;/li&gt;
+&lt;li&gt;Selector&lt;/li&gt;
+&lt;li&gt;Slider&lt;/li&gt;
+&lt;li&gt;SnapListview&lt;/li&gt;
+&lt;li&gt;Swipe list&lt;/li&gt;
+&lt;li&gt;Timer picker&lt;/li&gt;
+&lt;li&gt;Toggle switch&lt;/li&gt;
+&lt;li&gt;View Switcher&lt;/li&gt;
+&lt;li&gt;Virtual list&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Galaxy Watch 앱 만들기 #2 - TAU (Tizen Advanced UI) 사용하기]]></title><description><![CDATA[TAU 란? 일반적으로 Web Application은 html, css, js를 조합해서 개발을 하는데 Web…]]></description><link>https://hs85jeong.github.io/tizen-2/</link><guid isPermaLink="false">https://hs85jeong.github.io/tizen-2/</guid><pubDate>Tue, 24 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;tau-란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#tau-%EB%9E%80&quot; aria-label=&quot;tau 란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;TAU 란?&lt;/h2&gt;
 &lt;p&gt;일반적으로 Web Application은 html, css, js를 조합해서 개발을 하는데 Web 개발을 많이 경험해 본 개발자라면 손 쉽게 원하는 화면을 구성할 수 있겠지만, 초보자라면 쉽지 않기 때문에 원하는 화면을 쉽고 빠르게 구성하기 위해 &lt;a href=&quot;https://getbootstrap.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;bootstrap&lt;/a&gt;이나 &lt;a href=&quot;https://semantic-ui.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Semantic UI&lt;/a&gt; 같은 UI Framework를 사용해서 개발을 한다.&lt;/p&gt;
 &lt;p&gt;하지만, 이런 UI Framwork들은 모바일이나 태블릿 화면을 기준으로 만들어져 있기 떄문에 Watch에 맞는 구성을 지원하지 않는다. 이런 문제를 해결할 수 있는게 바로 &lt;a href=&quot;https://samsung.github.io/TAU/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;TAU(Tizen Advanced UI)&lt;/a&gt; 이다.&lt;/p&gt;
 &lt;p&gt;TAU는 Tizen Application을 쉽게 개발할 수 있도록 도와주는 UI Framework로 모바일 뿐만 아니라 Galaxy Watch와 같은 시계 화면을 위한 Wearable을 지원하고 있다. 즉, TAU를 사용하면 아래와 같은 화면을 가진 앱을 쉽게 개발 할 수 있다 :D&lt;/p&gt;
